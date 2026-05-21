@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Consoante ou vogal</title>
+</head>
+<body>
+    <h1>Consoante ou vogal</h1>
+    <hr>
+    <form> 
+        Digite sua letra <br/>
+        <input type="text" id="letra"><br/><br/>
+
+        <button type="button" onclick="letra1()">Verifique</button>
+        <button type="reset">Limpar</button><br/><br/>
+
+        Vogal ou consoante:<br/>
+        <input type="text" id="resultado" readonly>
+    </form>
+
+    <script>
+        function letra1() {
+            let l = document.getElementById("letra").value ;
+
+            if (l === "a" || l === "e" || l === "i" || l === "o" || l === "u") {
+                document.getElementById("resultado").value = "Vogal";
+            } else {
+                document.getElementById("resultado").value = "Consoante";
+            }
+        }
+    </script>
+</body>
+</html>

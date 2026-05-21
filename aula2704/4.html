@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>exercicio 2 da lista</title>
+</head>
+
+<body>
+    <h1>Calculadora</h1>
+    <hr>
+    <form action="">
+        em qual turno vc estuda(M-matutino ou V-Vespertino ou N-Noturno) <br />
+        <input type="text" id="turno"><br />
+       
+        
+        <button type="button" onclick="calcular()">verifique</button>
+        <button type="reset">limpar</button> <br />
+        Resultado: <br />
+        <input type="text" id="resultado" readonly="readonly">
+
+    </form>
+
+</body>
+
+</html>
+<script>
+    function calcular() {
+        let l = document.getElementById("turno").value;
+        if (l =="M"|| l=='m'){
+            document.getElementById("resultado").value="bom dia"
+        }else if (l=="V"|| l == "v"){
+
+            document.getElementById("resultado").value="boa tarde"
+        }else if (l=="N" || l=="n"){
+            document.getElementById("resultado").value="boa noite"
+        
+
+
+        
+
+    
+        
+        
+
+
+
+        
+        
+
+            
+        }
+    }
+
+
+
+
+        
+
+
+
+
+
+
+
+
+
+</script>

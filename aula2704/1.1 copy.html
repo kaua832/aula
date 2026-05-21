@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>exercicio 2 da lista</title>
+</head>
+
+<body>
+    <h1>Calculadora</h1>
+    <hr>
+    <form action="">
+        nota1 <br />
+        <input type="text" id="n1"><br />
+        nota2 <br />
+        <input type="text" id="n2"><br />
+        <button type="button" onclick="calcular()">calcular</button>
+        <button type="reset">limpar</button> <br />
+        Resultado: <br />
+        <input type="text" id="resultado" readonly="readonly">
+
+    </form>
+
+</body>
+
+</html>
+<script>
+    function calcular() {
+        let x = parseFloat(document.getElementById("n1").value);
+        let y = parseFloat(document.getElementById("n2").value)
+
+        let media = (x + y) / 2;
+
+
+
+        document.getElementById('resultado').value = media;
+        if (media >= 7) {
+            document.getElementById('resultado').value = "aprovado";
+        }else{
+
+            document.getElementById('resultado').value = "reprovado";
+        }
+
+
+
+
+
+        }
+
+
+
+
+
+
+
+
+
+</script>
