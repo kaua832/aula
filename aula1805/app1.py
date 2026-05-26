@@ -1,25 +1,15 @@
 usuarios = []
-saldo = []
-session = []
 login_sucesso = False
-
-def add_saldo(s, c):
-    print(s)
-
 def login():
-    cpf = input("CPF(somente os numeros): ")
+    cpf = input("usuario: ")
     senha = input("senha: ")
     global login_sucesso
     login_sucesso = False
     for u in usuarios:
-        if u["cpf"] == cpf and u["senha"] == senha:
+        if u["usuario"] == nome and u["senha"] == senha:
             login_sucesso = True
-            global session
-            session = {"usuario": u["usuario"], "cpf": u["cpf"]}
-            print(f"acesso liberado {u["usuario"]}")
             break
-        print("falha no login")
-        break
+    print("acesso liberado" if login_sucesso else "falha no login")
 
 def trocar_senha():
     nome = input("usuario: ")
@@ -34,7 +24,7 @@ def trocar_senha():
 def cadastrar():
     nome = input("novo usuario: ")
     senha = input("senha: ")
-    cpf = input("CPF(apenas os numeros)")
+    cpf = int(input("CPF(apenas os numeros)"))
     usuarios.append({"usuario": nome, "senha": senha, "cpf": cpf})
     print(f"usuario {nome} cadastrado com sucesso")
 
@@ -42,24 +32,18 @@ def sistema():
     while True:
         global login_sucesso
         if login_sucesso:
-            print("\n1. adicionar saldo | 2. trocar senha| 3. sair")
+            print("\n1. login | 2. trocar senha| 3. sair")
             opcao = input("escolha: ")
 
             match opcao:
                 case "1":
-                    if login_sucesso:
-                        global session
-                        cpf = session["cpf"]
-                        saldo = float(input("informar o saldo a depositar: "))
-                        add_saldo(saldo, cpf)
+                    login()
                 case "2":
                     trocar_senha()
                 case "3":
                     print("saindo...")
                     login_sucesso = False
-                    session = {}
                     
-                     
                 case _:
                     print("opcao invalida")
         else:
@@ -75,6 +59,8 @@ def sistema():
                     trocar_senha()
                 case "4":
                     print("saindo...")
+                    
+                    
                     break
                 case _:
                     print("opcao invalida")
