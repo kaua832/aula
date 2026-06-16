@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>kaua samuel</title>
+</head>
+
+<body>
+    <h1>Calculadora</h1>
+    <hr> 
+    <form action="">
+numero1 <br/>
+<input type="text" id="n1"><br/>
+numero2 <br/>
+<input type="text" id="n2"><br/><br/>
+<button type="button" onclick="calculadora()">calcular</button>
+<button type="button" onclick="multiplicar()">multiplicar</button>
+<button type="reset" >limpar</button> <br/>
+Resultado: <br/>
+<input type="text" id="resposta" readonly="readonly">
+
+    </form>
+   
+</body>
+
+</html>
+<script>
+        function calculadora(){
+            let x = parseInt(document.getElementById("n1").value) ;
+            let y = parseInt(document.getElementById("n2").value)
+            
+            let soma = x + y ;
+            
+            
+            
+            document.getElementById('resposta').value = soma;
+
+    
+            //alert(x)
+            
+        }
+        function multiplicar(){
+            let x = parseInt(document.getElementById("n1").value) ;
+            let y = parseInt(document.getElementById("n2").value)
+            let multiplicar = x * y
+            document.getElementById('resposta'.value = multiplicar)
+
+
+
+
+
+
+        }
+</script>

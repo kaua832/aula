@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button class="btn btn-primary" type="button" onclick="load()";>Requisitar API
+    </button>
+    <p id="demo"></p>
+    <script>
+        function load() {
+            var requisicao = new XMLHttpRequest();
+            requisicao.open("GET", "https://randomuser.me/api");
+
+            requisicao.send();
+            requisicao.onload = function() {
+                if (requisicao.status == 200) {
+                    resposta = requisicao.response;
+                    responseObj = JSON.parse(resposta);
+                    document.querySelector("#demo").innerHTML = responseObj.results
+                    [0].name.first + " " + responseObj.results[0].name.last;
+                }
+            }
+        }
+    </script>
+</body>
+</html>
