@@ -6,24 +6,49 @@
     <title>Document</title>
 </head>
 <body>
-    <button class="btn btn-primary" type="button" onclick="load()";>Requisitar API
+    <button class="btn btn-primary" type="button" onclick="load()";>pesquisar cep
     </button>
-    <p id="demo"></p>
+    <input type ="text" id="cep">
+
+    <p class="pegatexto" id="demo"></p>
+
+
+    <button  onclick="pegatexto()">pega texto</button>
+    <a href="site.com.br" id="meulink">site.com.br</a>
+    <button onclick="getlinkexterno()">link </button>
     <script>
         function load() {
+            let cep = document.getElementById("cep").value;
+
             var requisicao = new XMLHttpRequest();
-            requisicao.open("GET", "https://randomuser.me/api");
+            requisicao.open("GET", "https://viacep.com.br/ws/" + cep + "/json/");
 
             requisicao.send();
             requisicao.onload = function() {
                 if (requisicao.status == 200) {
                     resposta = requisicao.response;
                     responseObj = JSON.parse(resposta);
-                    document.querySelector("#demo").innerHTML = responseObj.results
-                    [0].name.first + " " + responseObj.results[0].name.last;
+                    console.log(responseObj);
+                    document.querySelector("#demo").innerHTML = responseObj.logradouro;
+                    
                 }
             }
         }
+
+        function pegatexto(){
+
+            const titulo = document.querySelector(".pegatexto").innerText;
+            oquefoidigitado(titulo);
+
+            
+        }
+        function oquefoidigitado(p){
+            alert(p)
+        }
+        function getlinkexterno(){
+            const linkexterno = document.getElementById("meulink").getAttribute("href");
+            oquefoidigitado(linkexterno)
+        }   
     </script>
 </body>
 </html>

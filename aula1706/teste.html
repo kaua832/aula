@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        async function enviarPerguntas(){
+            const url = "http://10.139.206.132:3000/perguntas";
+
+            const dados = {
+            
+                "perguntas": "Kaua",
+                "resposta": "OI, estamos rodando com uma API feita com express e um banco de dados fake com json-server"
+            };
+
+
+            try {
+                const resposta = await fetch(url, {
+                    method: 'POST',
+
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body:   JSON.stringify(dados)
+            });
+
+            if (!resposta.ok) {
+                throw new Error(`Erro na requisicao: ${resposta.status}`);
+            }
+
+            const resultado = await resposta.json();
+            console.log('Dados enviados com sucesso:', resultado);
+            return resultado;
+
+        }
+        catch (erro) {
+            console.error('Falha ao enviar os dados:', erro); 
+        }
+    }
+
+    enviarPerguntas();
+
+    </script>
+</body>
+</html>
